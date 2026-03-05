@@ -76,17 +76,35 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-10">講師</h2>
           <div className="bg-white rounded-xl shadow-md p-8 max-w-2xl mx-auto">
-            <div className="text-center">
-              <p className="text-accent text-sm font-medium mb-1">
-                株式会社AppTalentHub ファウンダーCEO
-              </p>
-              <h3 className="text-2xl font-bold mb-4">宮崎 翼</h3>
-              <p className="text-text-secondary leading-relaxed">
-                AppTalentHub株式会社の創業者。AI駆動開発の実践者として、
-                DXBoost事業を通じて企業のデジタル変革を支援。
-                「経営者こそAIに触れるべき」をモットーに、
-                ファウンダー・経営者向けのAI活用講座を展開中。
-              </p>
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-shrink-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://apptalenthub.co.jp/wp-content/uploads/2025/06/2024-3-768x768.png"
+                  alt="宮崎 翼"
+                  className="w-40 h-40 rounded-full object-cover shadow-lg"
+                />
+              </div>
+              <div className="text-center md:text-left">
+                <p className="text-accent text-sm font-medium mb-1">
+                  <a
+                    href="https://apptalenthub.co.jp/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    株式会社AppTalentHub
+                  </a>{" "}
+                  ファウンダーCEO
+                </p>
+                <h3 className="text-2xl font-bold mb-4">宮崎 翼</h3>
+                <p className="text-text-secondary leading-relaxed">
+                  AppTalentHub株式会社の創業者。AI駆動開発の実践者として、
+                  DXBoost事業を通じて企業のデジタル変革を支援。
+                  「経営者こそAIに触れるべき」をモットーに、
+                  ファウンダー・経営者向けのAI活用講座を展開中。
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -234,6 +252,42 @@ export default function Home() {
                 <p className="text-sm text-text-secondary">{card.desc}</p>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Rappit-kun */}
+      <section className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://apptalenthub.co.jp/wp-content/uploads/2026/02/プロトタイプ開発のラピットくん.png"
+                alt="ラピットくん — AppTalentHub公式キャラクター"
+                className="w-36 h-36 object-contain"
+              />
+            </div>
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-bold mb-2">
+                ラピットくん
+              </h3>
+              <p className="text-sm text-text-secondary mb-1">
+                AppTalentHub 公式キャラクター
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                プロトタイプ開発が大好きな、AppTalentHubの公式マスコット。
+                「まず作ってみよう！」の精神で、ファウンダーのみなさんのMVP開発を応援します。
+              </p>
+              <a
+                href="https://apptalenthub.co.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-3 text-sm text-accent hover:underline font-medium"
+              >
+                AppTalentHub 公式サイト &rarr;
+              </a>
+            </div>
           </div>
         </div>
       </section>

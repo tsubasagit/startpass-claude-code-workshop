@@ -27,7 +27,24 @@ export default function RootLayout({
         <footer className="bg-primary-dark text-white/60 py-8">
           <div className="max-w-5xl mx-auto px-4 text-center text-sm">
             <p>
-              &copy; 2026 AppTalentHub Inc. &times; StartPass Inc.
+              &copy; 2026{" "}
+              <a
+                href="https://apptalenthub.co.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                AppTalentHub Inc.
+              </a>{" "}
+              &times;{" "}
+              <a
+                href="https://startpass.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                StartPass Inc.
+              </a>
             </p>
             <p className="mt-1 text-white/40">
               DXBoost ショート講座 研修資料
