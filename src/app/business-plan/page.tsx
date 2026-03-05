@@ -101,37 +101,39 @@ export default function BusinessPlanPage() {
         {/* Step 1 */}
         <StepCard number={1} title="今日のテーマを理解する">
           <p>
-            今日作るのは「<strong>StartPass Talent Bridge</strong>」という、
-            大企業のプロフェッショナル人材とスタートアップをつなぐマッチングプラットフォームです。
+            今日作るのは、<strong>StartPass</strong>の
+            <strong>経営シミュレーション環境</strong>です。
+            事業計画・部署データ・朝礼システムをまるごとAIに構築させます。
           </p>
 
           <div className="bg-gray-50 rounded-lg p-5 mt-4">
-            <h4 className="font-bold mb-3">背景</h4>
+            <h4 className="font-bold mb-3">作るもの</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-3">
                 <span className="flex-shrink-0 bg-primary text-white text-xs px-2 py-1 rounded">
-                  大企業
+                  経営ドキュメント
                 </span>
                 <span>
-                  副業解禁の流れ。社員のキャリア多様化、オープンイノベーションを推進したいが、
-                  適切なマッチング先がない
+                  5カ年事業計画、市場調査（PEST/TAM/SAM/SOM）、プロダクト戦略、
+                  財務モデル（P/L・MRR・ユニットエコノミクス）、GTM戦略、チーム構成
                 </span>
               </div>
               <div className="flex items-start gap-3">
                 <span className="flex-shrink-0 bg-accent text-white text-xs px-2 py-1 rounded">
-                  スタートアップ
+                  部署データ
                 </span>
                 <span>
-                  正社員採用に時間がかかるが、経験豊富な人材が今すぐ必要。
-                  CFO・CTO・CMO等のCxOレベルの知見がほしい
+                  営業部（パイプライン・年間計画）、エンジニアリング部（タスク進捗・年間計画）、
+                  マーケティング部（広告KPI・SEO・年間計画）のリアルなサンプルデータ
                 </span>
               </div>
               <div className="flex items-start gap-3">
                 <span className="flex-shrink-0 bg-success text-white text-xs px-2 py-1 rounded">
-                  StartPass
+                  朝礼コマンド
                 </span>
                 <span>
-                  経営者ネットワークを活かして、両者を橋渡しする
+                  CLAUDE.mdに「朝礼」と言うだけで、Mission確認
+                  → 各部署の状況報告 → 今日のアクション整理が自動実行される仕組み
                 </span>
               </div>
             </div>
@@ -156,27 +158,14 @@ export default function BusinessPlanPage() {
           </p>
 
           <CodeBlock label="Step 2-A: Claude Code にコピペ（Plan Mode — 設計の提案を依頼）">
-            {`以下の内容で事業計画書を作りたい。
-まず構成案を提案して。まだファイルは作成しないで。
-
-■ サービス名: StartPass Talent Bridge（仮称）
-■ コンセプト: 大企業のプロフェッショナル人材とスタートアップをマッチングするプラットフォーム
-■ 背景:
-- 大企業は副業解禁・人材流動化の流れの中で、社員のキャリア開発と外部連携を模索している
-- スタートアップは正社員採用に時間がかかるが、経営・技術・マーケティングの即戦力が今すぐ必要
-- StartPassの既存会員ネットワーク（上場企業経営者 × スタートアップ経営者）を活かしたマッチングが可能
-
-以下のセクションを含めた構成案を出して:
-1. サービス概要（一言で / 対象ユーザー / 解決する課題）
-2. ターゲット（大企業側 / スタートアップ側 それぞれ）
-3. ビジネスモデル（課金形態・単価）
-4. MVP機能（最小限で検証すべき機能リスト）
-5. 競合との差別化（Wantedly, YOUTRUST, 副業系プラットフォームとの違い）
-6. 成功指標（3ヶ月後に何を達成していれば成功か）
-7. 5ヵ年ロードマップ（Year1〜Year5で何を達成するか）
-8. 収益シミュレーション（5年間の売上・コスト・利益の概算）
-
-各セクションの概要と、含めるべきポイントを箇条書きで提案して。`}
+            {`エージェントチームを5人作成して開始してください。
+StartPass Talent Bridgeの5ヵ年事業計画書を docs/business-plan.md に作成してください。
+チームは以下の5名構成とし、⑤が全体の整合性を担保してください。
+①市場調査: 市場規模と競合分析
+②プロダクト戦略: 機能ロードマップと差別化
+③財務モデル: 5年間のP/L予測とKPI
+④GTM・営業戦略: 大企業・スタートアップ双方へのアプローチ
+⑤統合編集: 全体の構成と整合性チェック`}
           </CodeBlock>
 
           <TipBox type="warning">
@@ -200,7 +189,7 @@ export default function BusinessPlanPage() {
           </p>
 
           <CodeBlock label="Step 2-B: 構成案OKなら → 作成を指示">
-            {`この構成でOK。docs/business-plan.md に事業計画書をMarkdownで作成して。`}
+            {`この構成でOK。提案されたディレクトリ構造で全ファイルをMarkdownで作成して。`}
           </CodeBlock>
 
           <TipBox>
@@ -229,30 +218,30 @@ export default function BusinessPlanPage() {
               <li className="flex items-start gap-3">
                 <span className="text-success font-bold">&#10003;</span>
                 <span>
-                  <strong>ビジネスモデルの数字は妥当か？</strong>
+                  <strong>財務モデルの数字は妥当か？</strong>
                   <br />
                   <span className="text-sm text-text-secondary">
-                    成約課金15%は高い？安い？ 法人プラン月額10万円は適切？
+                    MRR推移は現実的？ LTV/CACの比率は健全？ 資金調達のタイミングは？
                   </span>
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-success font-bold">&#10003;</span>
                 <span>
-                  <strong>ターゲットは適切か？</strong>
+                  <strong>市場規模（TAM/SAM/SOM）は根拠があるか？</strong>
                   <br />
                   <span className="text-sm text-text-secondary">
-                    大企業の「誰」が意思決定するのか？ 人事部？経営企画部？
+                    ボトムアップで計算し直すと妥当？ 競合の見落としはないか？
                   </span>
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-success font-bold">&#10003;</span>
                 <span>
-                  <strong>競合優位性は本物か？</strong>
+                  <strong>営業パイプラインはリアルか？</strong>
                   <br />
                   <span className="text-sm text-text-secondary">
-                    StartPassのネットワークは本当に参入障壁になるか？
+                    成約率の想定は甘くないか？ ファネルの転換率は実績ベースで検証できるか？
                   </span>
                 </span>
               </li>
@@ -262,17 +251,17 @@ export default function BusinessPlanPage() {
                   <strong>5ヵ年ロードマップは現実的か？</strong>
                   <br />
                   <span className="text-sm text-text-secondary">
-                    Year1の目標は達成可能？ Year5で本当にそこまでいける？
+                    Year1の目標は達成可能？ 組織拡大のペースは適切？
                   </span>
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-success font-bold">&#10003;</span>
                 <span>
-                  <strong>見落としているリスクはないか？</strong>
+                  <strong>部署間の整合性は取れているか？</strong>
                   <br />
                   <span className="text-sm text-text-secondary">
-                    法規制？ 人材の質の担保？ 大企業の稟議プロセス？
+                    営業目標とマーケのリード目標は連動している？ 開発ロードマップと営業計画のタイミングは合っている？
                   </span>
                 </span>
               </li>
@@ -286,17 +275,20 @@ export default function BusinessPlanPage() {
               例：
             </p>
             <CodeBlock label="修正指示の例（アレンジしてOK）">
-              {`事業計画書に以下の修正を加えて:
+              {`以下の修正を加えて:
 
-- 成約課金15%は高すぎる。最初は10%に設定して参入障壁を下げる戦略に変更して。
-  その代わり法人プランの月額を15万円にして安定収益を確保する方針で。
+- 財務モデルのYear1 ARRを3,000万円に下方修正して。
+  初年度は PMF検証に集中するので、売上より
+  チャーンレートとNPSを重視する方針に変更。
 
-- ターゲットの大企業側に「経営企画部」も追加して。
-  人事部だけでなく、オープンイノベーション推進の文脈で
-  経営企画部が意思決定するケースも多い。
+- 営業パイプラインにVC経由のリファラル案件を3件追加して。
+  JAFCO、Coral Capital、ANRIの投資先を想定。
 
-- 5ヵ年ロードマップのYear3に「地方展開」を追加して。
-  大阪・福岡にも拠点を広げる計画にして。`}
+- エンジニアリング部のQ2計画にAI機能のPOCを前倒しで追加して。
+  Claude APIを使った経営アドバイザー機能を早期に検証したい。
+
+- 朝礼フローに「今週の数字ハイライト」を追加して。
+  MRR、新規リード数、スプリント完了率の3指標を冒頭で報告する形に。`}
             </CodeBlock>
           </div>
 
