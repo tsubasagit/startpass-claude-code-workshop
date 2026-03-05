@@ -11,43 +11,69 @@ export default function SetupPage() {
     <>
       <PageHeader
         title="事前準備ガイド"
-        subtitle="当日までにお済ませください。所要時間: 約15〜30分"
+        subtitle="講座で使うツールの紹介と準備方法"
         badge="最初にお読みください"
       />
 
       <div className="max-w-4xl mx-auto px-4 py-12 space-y-8">
         {/* Overview */}
         <div className="bg-white rounded-xl shadow p-6">
-          <h2 className="text-xl font-bold mb-4">準備するもの（全3つ）</h2>
+          <h2 className="text-xl font-bold mb-4">講座で使うツール</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            {[
-              {
-                num: 1,
-                name: "Node.js",
-                desc: "JavaScriptを動かすためのソフトウェア",
-              },
-              {
-                num: 2,
-                name: "Claude Code",
-                desc: "AIに指示を出すためのツール",
-              },
-              {
-                num: 3,
-                name: "GitHub アカウント",
-                desc: "コードを保存・公開するためのサービス",
-              },
-            ].map((item) => (
-              <div
-                key={item.num}
-                className="bg-step-bg rounded-lg p-4 text-center"
+            <div className="bg-step-bg rounded-lg p-4 text-center">
+              <span className="inline-block w-8 h-8 rounded-full bg-primary text-white font-bold text-sm leading-8 mb-2">
+                1
+              </span>
+              <h3 className="font-bold">Node.js</h3>
+              <p className="text-xs text-text-secondary mt-1">
+                JavaScriptを動かすためのソフトウェア
+              </p>
+              <a
+                href="https://nodejs.org/ja"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-info hover:underline mt-2 inline-block"
               >
-                <span className="inline-block w-8 h-8 rounded-full bg-primary text-white font-bold text-sm leading-8 mb-2">
-                  {item.num}
-                </span>
-                <h3 className="font-bold">{item.name}</h3>
-                <p className="text-xs text-text-secondary mt-1">{item.desc}</p>
-              </div>
-            ))}
+                公式サイト &rarr;
+              </a>
+            </div>
+            <div className="bg-step-bg rounded-lg p-4 text-center">
+              <span className="inline-block w-8 h-8 rounded-full bg-primary text-white font-bold text-sm leading-8 mb-2">
+                2
+              </span>
+              <h3 className="font-bold">Claude Code</h3>
+              <p className="text-xs text-text-secondary mt-1">
+                AIに指示を出すためのツール
+              </p>
+              <a
+                href="https://docs.anthropic.com/en/docs/claude-code/overview"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-info hover:underline mt-2 inline-block"
+              >
+                公式ドキュメント &rarr;
+              </a>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-4 text-center border-2 border-dashed border-gray-300">
+              <span className="inline-block w-8 h-8 rounded-full bg-gray-400 text-white font-bold text-sm leading-8 mb-2">
+                3
+              </span>
+              <h3 className="font-bold">GitHub アカウント</h3>
+              <p className="text-xs text-text-secondary mt-1">
+                コードを保存・公開するためのサービス
+              </p>
+              <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-info hover:underline mt-2 inline-block"
+              >
+                公式サイト &rarr;
+              </a>
+              <p className="text-xs text-accent font-bold mt-2">
+                当日なくてもOK
+              </p>
+            </div>
           </div>
         </div>
 
@@ -203,6 +229,16 @@ export default function SetupPage() {
             <strong>Claude Code</strong>（クロード・コード）は、
             AIに日本語で指示を出して、コードやドキュメントを作ってもらうツールです。
             今日のメインで使うツールです。
+            （
+            <a
+              href="https://docs.anthropic.com/en/docs/claude-code/overview"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-info hover:underline"
+            >
+              Claude Code 公式ドキュメント
+            </a>
+            ）
           </p>
 
           <div className="bg-gray-50 rounded-lg p-5">
@@ -292,10 +328,30 @@ export default function SetupPage() {
         </StepCard>
 
         {/* Step 3: GitHub */}
-        <StepCard number={3} title="GitHub アカウントを作成する">
+        <StepCard number={3} title="GitHub アカウントを作成する（当日なくてもOK）">
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
+            <p className="text-sm font-bold text-amber-700 mb-1">
+              当日 GitHub アカウントがなくても参加できます
+            </p>
+            <p className="text-sm text-amber-600">
+              GitHubはサイトを「インターネットに公開する」ステップ（Phase 5）で使います。
+              アカウントがなくても、MVP構築（Phase 4）まではすべて体験できます。
+              余裕があれば事前に作成しておくとスムーズです。
+            </p>
+          </div>
           <p>
             <strong>GitHub</strong>（ギットハブ）は、プログラムのコードを保存・共有するサービスです。
             今回は、作ったマッチングサイトをインターネットに公開するのに使います。
+            （
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-info hover:underline"
+            >
+              GitHub公式サイト
+            </a>
+            ）
           </p>
 
           <div className="bg-gray-50 rounded-lg p-5">

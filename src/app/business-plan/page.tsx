@@ -43,6 +43,61 @@ export default function BusinessPlanPage() {
           </div>
         </div>
 
+        {/* Plan Mode Rule */}
+        <div className="bg-red-50 border-2 border-red-300 rounded-xl p-6">
+          <div className="flex items-start gap-4">
+            <span className="flex-shrink-0 w-12 h-12 rounded-full bg-red-500 text-white flex items-center justify-center font-black text-xl">
+              !
+            </span>
+            <div>
+              <h2 className="text-xl font-bold text-red-700 mb-2">
+                必須ルール：まず Plan Mode で設計してから作る
+              </h2>
+              <p className="text-red-800 mb-4">
+                Claude Code では、<strong>いきなり作り始めてはいけません。</strong>
+                必ず最初に「Plan Mode（プランモード）」で全体設計を確認し、
+                内容に納得してから実装に入ります。
+              </p>
+              <div className="bg-white rounded-lg p-4 mb-4">
+                <h4 className="font-bold mb-2">Plan Mode とは？</h4>
+                <p className="text-sm text-text-secondary mb-3">
+                  Claude Code に「まず計画を立てて。実装はまだしないで」と指示すると、
+                  AIは<strong>コードを書かずに設計案だけ</strong>を提示してくれます。
+                  これが Plan Mode です。
+                </p>
+                <p className="text-sm text-text-secondary">
+                  家を建てるときに設計図を描いてから工事するのと同じ。
+                  <strong>設計図（Plan）を確認 → OK を出す → 実装開始</strong>
+                  という手順を必ず守ってください。
+                </p>
+              </div>
+              <div className="bg-white rounded-lg p-4">
+                <h4 className="font-bold mb-2">なぜ Plan Mode が重要？</h4>
+                <ul className="text-sm space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 font-bold">1.</span>
+                    <span>
+                      <strong>方向性のズレを防ぐ</strong> — AIが見当違いのものを作り始めると、やり直しに時間がかかる
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 font-bold">2.</span>
+                    <span>
+                      <strong>全体像を把握できる</strong> — 何を作るのか、どんな構成になるのかを事前に確認できる
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 font-bold">3.</span>
+                    <span>
+                      <strong>ファウンダーが判断する場</strong> — 設計段階で「これは違う」「ここを変えて」と軌道修正できる
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Step 1 */}
         <StepCard number={1} title="今日のテーマを理解する">
           <p>
@@ -83,15 +138,26 @@ export default function BusinessPlanPage() {
           </div>
         </StepCard>
 
-        {/* Step 2 */}
-        <StepCard number={2} title="AIに事業計画書を作らせる">
+        {/* Step 2: Plan Mode */}
+        <StepCard number={2} title="【Plan Mode】まず事業計画の構成をAIに提案させる">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+            <p className="text-sm font-bold text-red-700 mb-1">
+              ここが Plan Mode です — まだ作らせません
+            </p>
+            <p className="text-sm text-red-600">
+              この指示では「<strong>提案して。まだ作成しないで。</strong>」と明記します。
+              AIが構成案を出してくれるので、内容を確認してからOKを出します。
+            </p>
+          </div>
+
           <p>
-            以下のテキストを<strong>そのままClaude Codeにコピー＆ペースト</strong>してください。
-            AIが自動で事業計画書を作成してくれます。
+            以下をClaude Codeにコピー＆ペーストしてください。
+            <strong>AIに事業計画の「設計図」を出させます。</strong>
           </p>
 
-          <CodeBlock label="Claude Code にコピペする指示文">
-            {`以下の内容で事業計画書をMarkdownで作成して、docs/business-plan.md に保存して。
+          <CodeBlock label="Step 2-A: Claude Code にコピペ（Plan Mode — 設計の提案を依頼）">
+            {`以下の内容で事業計画書を作りたい。
+まず構成案を提案して。まだファイルは作成しないで。
 
 ■ サービス名: StartPass Talent Bridge（仮称）
 ■ コンセプト: 大企業のプロフェッショナル人材とスタートアップをマッチングするプラットフォーム
@@ -100,7 +166,7 @@ export default function BusinessPlanPage() {
 - スタートアップは正社員採用に時間がかかるが、経営・技術・マーケティングの即戦力が今すぐ必要
 - StartPassの既存会員ネットワーク（上場企業経営者 × スタートアップ経営者）を活かしたマッチングが可能
 
-以下のセクションを含めて:
+以下のセクションを含めた構成案を出して:
 1. サービス概要（一言で / 対象ユーザー / 解決する課題）
 2. ターゲット（大企業側 / スタートアップ側 それぞれ）
 3. ビジネスモデル（課金形態・単価）
@@ -108,7 +174,33 @@ export default function BusinessPlanPage() {
 5. 競合との差別化（Wantedly, YOUTRUST, 副業系プラットフォームとの違い）
 6. 成功指標（3ヶ月後に何を達成していれば成功か）
 7. 5ヵ年ロードマップ（Year1〜Year5で何を達成するか）
-8. 収益シミュレーション（5年間の売上・コスト・利益の概算）`}
+8. 収益シミュレーション（5年間の売上・コスト・利益の概算）
+
+各セクションの概要と、含めるべきポイントを箇条書きで提案して。`}
+          </CodeBlock>
+
+          <TipBox type="warning">
+            <p>
+              <strong>ここで必ず立ち止まってください。</strong>
+              AIが提案した構成案を読んで、以下を確認しましょう：
+            </p>
+            <ul className="mt-2 space-y-1 text-sm">
+              <li>・セクションの構成は適切か？ 追加・削除したいものはないか？</li>
+              <li>・各セクションの方向性は合っているか？</li>
+              <li>・自分のビジネスに合わない部分はないか？</li>
+            </ul>
+          </TipBox>
+
+          <p className="font-medium mt-4 mb-2">
+            構成案に納得したら → 作成を指示する
+          </p>
+          <p className="text-sm text-text-secondary mb-3">
+            修正したい部分があれば、この段階で伝えてください。
+            問題なければ、以下で作成GOを出します。
+          </p>
+
+          <CodeBlock label="Step 2-B: 構成案OKなら → 作成を指示">
+            {`この構成でOK。docs/business-plan.md に事業計画書をMarkdownで作成して。`}
           </CodeBlock>
 
           <TipBox>
@@ -120,7 +212,7 @@ export default function BusinessPlanPage() {
 
           <p className="text-text-secondary text-sm mt-2">
             数十秒〜1分ほどで、AIが事業計画書を自動生成してくれます。
-            かなり体裁の整った事業計画書が出てくるはずです。
+            構成案で確認済みなので、大きくズレることはありません。
           </p>
         </StepCard>
 

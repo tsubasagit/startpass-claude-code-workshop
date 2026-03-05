@@ -61,13 +61,79 @@ export default function MvpPage() {
           </div>
         </div>
 
-        {/* Preparation */}
-        <StepCard number={0} title="まず設計をAIに提案させる">
+        {/* Plan Mode Rule */}
+        <div className="bg-red-50 border-2 border-red-300 rounded-xl p-6">
+          <div className="flex items-start gap-4">
+            <span className="flex-shrink-0 w-12 h-12 rounded-full bg-red-500 text-white flex items-center justify-center font-black text-xl">
+              !
+            </span>
+            <div>
+              <h2 className="text-xl font-bold text-red-700 mb-2">
+                必須ルール：Plan Mode → 確認 → 実装の順番を必ず守る
+              </h2>
+              <p className="text-red-800 mb-3">
+                MVP構築でも、<strong>いきなりコードを書かせてはいけません。</strong>
+                必ず最初に Plan Mode で「何を作るか」「どんな画面構成にするか」を確認し、
+                納得してから実装に入ります。
+              </p>
+              <div className="bg-white rounded-lg p-4">
+                <h4 className="font-bold mb-3">MVP構築の3ステップ</h4>
+                <div className="flex flex-col md:flex-row gap-3">
+                  <div className="flex-1 bg-red-50 rounded-lg p-3 text-center border border-red-200">
+                    <p className="text-xs text-red-500 font-bold mb-1">STEP A</p>
+                    <p className="font-bold text-sm">Plan Mode</p>
+                    <p className="text-xs text-text-secondary mt-1">
+                      設計案を提案させる<br />（コードは書かない）
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-center text-xl text-red-400 font-bold">
+                    &rarr;
+                  </div>
+                  <div className="flex-1 bg-amber-50 rounded-lg p-3 text-center border border-amber-200">
+                    <p className="text-xs text-amber-600 font-bold mb-1">STEP B</p>
+                    <p className="font-bold text-sm">確認 &amp; 修正</p>
+                    <p className="text-xs text-text-secondary mt-1">
+                      あなたが内容を確認<br />必要なら修正指示
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-center text-xl text-red-400 font-bold">
+                    &rarr;
+                  </div>
+                  <div className="flex-1 bg-green-50 rounded-lg p-3 text-center border border-green-200">
+                    <p className="text-xs text-green-600 font-bold mb-1">STEP C</p>
+                    <p className="font-bold text-sm">実装GO</p>
+                    <p className="text-xs text-text-secondary mt-1">
+                      OKを出してから<br />コードを書かせる
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-red-600 mt-3">
+                この3ステップは、<strong>各マイルストーン（M1/M2/M3）のすべてで適用</strong>します。
+                マイルストーンごとに Plan → 確認 → 実装を繰り返してください。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Preparation: Plan Mode */}
+        <StepCard number={0} title="【Plan Mode】プロジェクト全体の設計をAIに提案させる">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+            <p className="text-sm font-bold text-red-700 mb-1">
+              Plan Mode — まだコードは書かせません
+            </p>
+            <p className="text-sm text-red-600">
+              「<strong>実装はまだしないで</strong>」と明記することで、
+              AIは設計案だけを出してくれます。ここで画面構成・機能を確認します。
+            </p>
+          </div>
+
           <p>
             いきなりコードを書くのではなく、まずAIに「どんな画面を作るか」を提案させます。
-            設計→実装の順番は、プロのエンジニアと同じ進め方です。
+            <strong>設計→確認→実装</strong>の順番は、プロのエンジニアと同じ進め方です。
           </p>
-          <CodeBlock label="Claude Code にコピペ（設計の提案を依頼）">
+
+          <CodeBlock label="Step A: Claude Code にコピペ（Plan Mode — 設計案の提案）">
             {`docs/business-plan.md を読んで、このサービスのMVPサイトを作りたい。
 
 技術スタック:
@@ -75,14 +141,31 @@ export default function MvpPage() {
 - データベースは使わない（サンプルデータをTypeScriptの定数で持つ）
 - GitHub Pages にデプロイする前提
 
-まずは画面一覧と各画面の概要を提案して。実装はまだしないで。`}
+以下を提案して。実装はまだしないで。
+1. 画面一覧と各画面の概要
+2. 各画面に含める要素（セクション、ボタン、データ項目）
+3. ファイル構成（どのファイルに何を書くか）
+4. データの型定義（どんなフィールドを持つか）`}
           </CodeBlock>
 
-          <p className="text-sm text-text-secondary mt-3">
-            AIが画面一覧を提案してくれたら、内容を確認して：
+          <TipBox type="warning">
+            <p>
+              <strong>ここで必ず立ち止まってください。</strong>
+              AIが提案した設計案を読んで、以下を確認しましょう：
+            </p>
+            <ul className="mt-2 space-y-1 text-sm">
+              <li>・画面構成は適切か？（トップ、一覧、詳細で足りるか？）</li>
+              <li>・各画面に含める情報は正しいか？</li>
+              <li>・データの項目に過不足はないか？</li>
+              <li>・修正したい点があれば、この段階で伝える</li>
+            </ul>
+          </TipBox>
+
+          <p className="font-medium mt-4 mb-2">
+            設計案に納得したら → 実装GOを出す
           </p>
 
-          <CodeBlock label="問題なければ実装開始を指示">
+          <CodeBlock label="Step B → C: 設計案OKなら → 実装開始を指示">
             {`この設計でOK。では実装を開始して。
 Next.jsプロジェクトの初期化から。
 日本語フォント（Noto Sans JP）、色は青系（信頼感のある色合い）で。`}
@@ -106,7 +189,13 @@ Next.jsプロジェクトの初期化から。
           </p>
         </div>
 
-        <StepCard number={1} title="トップページを作る">
+        <StepCard number={1} title="【Plan → 実装】トップページを作る">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+            <p className="text-xs font-bold text-red-700">
+              Plan Mode 適用: Step 0 で全体設計を確認済みなので、M1はそのまま実装に入ります。
+              もし設計と違う内容になったら「待って、設計と違う」と止めてください。
+            </p>
+          </div>
           <p>
             以下をClaude Codeにコピペしてください。
             AIがトップページの全コードを自動生成します。
@@ -166,7 +255,13 @@ Next.jsプロジェクトの初期化から。
           </p>
         </div>
 
-        <StepCard number={2} title="案件データ + 一覧ページを作る">
+        <StepCard number={2} title="【Plan → 実装】案件データ + 一覧ページを作る">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+            <p className="text-xs font-bold text-red-700">
+              Plan Mode 確認: 指示の中にデータ項目・画面要素を明記しています。
+              これ自体が「設計書」の役割を果たします。AIの出力を確認して、想定と違えば修正指示を出してください。
+            </p>
+          </div>
           <p>
             次に、実際の案件データとそれを表示する一覧ページを作ります。
             検索やフィルター機能も一緒に作ってもらいます。
@@ -221,7 +316,7 @@ Next.jsプロジェクトの初期化から。
           </p>
         </div>
 
-        <StepCard number={3} title="案件詳細 + 応募モーダルを作る">
+        <StepCard number={3} title="【Plan → 実装】案件詳細 + 応募モーダルを作る">
           <CodeBlock label="Claude Code にコピペ">
             {`案件詳細ページ（src/app/jobs/[id]/page.tsx）を作って。
 
