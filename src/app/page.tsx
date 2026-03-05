@@ -156,8 +156,8 @@ export default function Home() {
               {
                 time: "19:35 - 20:00",
                 phase: "Phase 6",
-                title: "ファウンダーディスカッション",
-                desc: "AI駆動開発を自社の経営にどう活かすか。参加者同士でディスカッション。DXBoost本講座のご紹介も。",
+                title: "質疑応答",
+                desc: "AI駆動開発を自社の経営にどう活かすか。参加者からの質問にお答えします。",
                 duration: "25分",
               },
             ].map((item, i) => (

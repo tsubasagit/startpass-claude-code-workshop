@@ -137,69 +137,6 @@ export default function ResourcesPage() {
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-4">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center font-bold text-sm">
-                4
-              </span>
-              <div>
-                <h3 className="font-bold">
-                  DXBoost本講座で本格的に学ぶ
-                </h3>
-                <p className="text-sm text-text-secondary">
-                  今日の2時間はAIで「作る」体験でした。本講座では「設計判断力」
-                  「品質管理」「チーム開発」まで12週間で身につけます。
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* DXBoost */}
-        <div className="bg-gradient-to-r from-primary to-primary-dark text-white rounded-xl p-8">
-          <h2 className="text-2xl font-bold mb-4">
-            DXBoost 本講座のご紹介
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="font-medium text-white/60 mb-2">
-                今日の2時間で体験したこと
-              </h3>
-              <p className="text-lg">
-                AIで「<strong>作る</strong>」力
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-white/60 mb-2">
-                DXBoost本講座（12週間・40時間）で身につけること
-              </h3>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <span className="text-success">&#10003;</span>
-                  AIで「作る」力（今日の延長）
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-success">&#10003;</span>
-                  <strong>設計判断力</strong>（なぜこの技術を選ぶのか）
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-success">&#10003;</span>
-                  <strong>品質管理</strong>（テスト・セキュリティ）
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-success">&#10003;</span>
-                  <strong>チーム開発力</strong>（ベストプラクティス）
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-success">&#10003;</span>
-                  <strong>組織DX推進力</strong>（内製化のリード）
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-6 bg-white/10 rounded-lg p-4 text-center">
-            <p className="font-bold">
-              Reスキル認定講座 — 受講料の最大70%が給付金対象
-            </p>
           </div>
         </div>
 
@@ -220,7 +157,7 @@ export default function ResourcesPage() {
               },
               {
                 q: "プログラミングを知らなくても続けられますか？",
-                a: "今日体験した通り、Claude Codeがあればコードを書く必要はほぼありません。DXBoost本講座もプログラミング経験不問です。",
+                a: "今日体験した通り、Claude Codeがあればコードを書く必要はほぼありません。日本語で指示するだけで大丈夫です。",
               },
               {
                 q: "Claude Code以外のAIツールでも同じことができますか？",
@@ -228,7 +165,7 @@ export default function ResourcesPage() {
               },
               {
                 q: "社内でAI開発を推進するにはどうすればいいですか？",
-                a: "まずは今日のような体験を社内のメンバーにもしてもらうことが第一歩です。DXBoost本講座では組織DX推進のカリキュラムもあります。",
+                a: "まずは今日のような体験を社内のメンバーにもしてもらうことが第一歩です。小さなMVPから始めて、成功体験を共有していきましょう。",
               },
               {
                 q: "今日のコードを改良したい場合はどうすれば？",
@@ -310,7 +247,7 @@ export default function ResourcesPage() {
         <div className="bg-white rounded-xl shadow-md p-8 text-center">
           <h2 className="text-xl font-bold mb-4">お問い合わせ</h2>
           <p className="text-text-secondary mb-4">
-            講座の内容やDXBoost本講座について、お気軽にお問い合わせください。
+            講座の内容について、お気軽にお問い合わせください。
           </p>
           <div className="space-y-2 text-sm">
             <p>
