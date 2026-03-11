@@ -37,27 +37,6 @@
 - **MVP 構築** (`/mvp`) — マイルストーン・成果物・成功指標
 - **学習リソース** (`/resources`) — 成果物一覧・参考リンク
 
-## 技術スタック
-
-- **Next.js 15** (Static Export) + **React 19** + **TypeScript 5**
-- **Tailwind CSS 4**
-- **GitHub Pages** (GitHub Actions で自動デプロイ)
-
-## ローカル開発
-
-```bash
-git clone https://github.com/tsubasagit/startpass-claude-code-workshop.git
-cd startpass-claude-code-workshop
-npm install
-npm run dev
-```
-
-http://localhost:3000/startpass-claude-code-workshop でアクセスできます。
-
-## デプロイ
-
-`main` ブランチへの push で GitHub Actions が自動実行され、GitHub Pages にデプロイされます。
-
 ## ライセンス
 
 [MIT](LICENSE)

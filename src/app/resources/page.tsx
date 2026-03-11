@@ -243,6 +243,25 @@ export default function ResourcesPage() {
           </p>
         </TipBox>
 
+        {/* StartPass CTA */}
+        <div className="bg-gradient-to-r from-primary to-primary-light rounded-xl shadow-md p-8 text-center text-white">
+          <h2 className="text-xl font-bold mb-4">StartPass 会員募集中</h2>
+          <p className="mb-2">
+            <strong>StartPass の会員になると、こうした限定ワークショップにフルで参加できます。</strong>
+          </p>
+          <p className="mb-6 text-white/90 text-sm">
+            詳しくは StartPass 公式サイトをご覧ください。
+          </p>
+          <a
+            href="https://startpass.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            StartPass 公式サイトへ
+          </a>
+        </div>
+
         {/* Contact */}
         <div className="bg-white rounded-xl shadow-md p-8 text-center">
           <h2 className="text-xl font-bold mb-4">お問い合わせ</h2>
