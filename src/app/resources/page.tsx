@@ -285,6 +285,18 @@ export default function ResourcesPage() {
           </div>
         </div>
 
+        {/* Rappit-kun */}
+        <div className="text-center py-4">
+          <img
+            src="https://apptalenthub.co.jp/wp-content/uploads/2026/02/プロトタイプ開発のラピットくん.png"
+            alt="ラピットくん — AppTalentHub公式キャラクター"
+            className="w-28 h-28 object-contain mx-auto"
+          />
+          <p className="mt-3 text-lg font-bold text-primary">
+            みんなの参加、待ってるよ！！
+          </p>
+        </div>
+
         {/* Back to top */}
         <div className="flex justify-between pt-4">
           <Link
